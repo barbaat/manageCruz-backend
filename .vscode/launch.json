@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ManageCruzApplication",
+            "request": "launch",
+            "mainClass": "org.springframework.samples.manageCruz.ManageCruzApplication",
+            "projectName": "spring-petclinic",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50373 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic"
+        },
+        {
+            "type": "java",
+            "name": "VolleyMateApplication",
+            "request": "launch",
+            "mainClass": "org.springframework.samples.cracks.VolleyMateApplication",
+            "projectName": "spring-petclinic",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50373 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-VolleyMateApplication<spring-petclinic>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.springframework.samples.volleymate.VolleyMateApplication",
+            "projectName": "spring-petclinic",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51782 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ManageCruzApplication<spring-petclinic>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ManageCruzApplication",
+            "projectName": "spring-petclinic",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
