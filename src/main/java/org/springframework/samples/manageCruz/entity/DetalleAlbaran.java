@@ -32,9 +32,6 @@ public class DetalleAlbaran {
     @Column(name = "unidades")
     private int unidades;
 
-    @Column(name = "precio")
-    private double precio;
-
     @Column(name = "porcentaje_descuento")
     private double porcentajeDescuento;
 
@@ -53,6 +50,10 @@ public class DetalleAlbaran {
         return producto.getDescripcion();
     }
 
+    public double getPrecio() {
+        return producto.getPrecio();
+    }
+
     @Override
     public String toString() {
         return "DetalleAlbaran{" +
@@ -60,7 +61,7 @@ public class DetalleAlbaran {
                 ", albaran=" + albaran +
                 ", producto=" + producto +
                 ", unidades=" + unidades +
-                ", precio=" + precio +
+                ", precio=" + getPrecio() +
                 ", porcentajeDescuento=" + porcentajeDescuento +
                 ", importe=" + importe +
                 ", referenciaProducto='" + getReferenciaProducto() +

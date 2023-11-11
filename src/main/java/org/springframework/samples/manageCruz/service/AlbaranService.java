@@ -6,8 +6,6 @@ import org.springframework.samples.manageCruz.entity.Albaran;
 import org.springframework.samples.manageCruz.repository.AlbaranRepository;
 import org.springframework.stereotype.Service;
 
-
-
 @Service
 public class AlbaranService {
 

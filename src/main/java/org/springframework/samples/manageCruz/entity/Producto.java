@@ -5,8 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
 
 @Data
 @Entity
@@ -26,7 +27,22 @@ public class Producto {
     @Column(name = "descripcion")
     private String descripcion;
 
+    @Column(name = "precio")
+    private double precio;
+
     @OneToMany(mappedBy = "albaran", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({ "producto", "albaran" })
     private List<DetalleAlbaran> detalles;
 
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", referencia='" + referencia + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", detalles=" + detalles +
+                ", precio=" + precio +
+                '}';
+    }
 }

@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.samples.manageCruz.entity.Albaran;
-import org.springframework.samples.manageCruz.entity.User;
 import org.springframework.samples.manageCruz.service.AlbaranService;
+import org.springframework.samples.manageCruz.service.ProductoService;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +20,12 @@ public class AlbaranController {
 
     private final AlbaranService albaranService;
 
-    public AlbaranController(AlbaranService albaranService) {
+    private final ProductoService productoService;
+
+    public AlbaranController(AlbaranService albaranService, ProductoService productoService) {
+        super();
         this.albaranService = albaranService;
+        this.productoService = productoService;
     }
 
     @GetMapping("/get/{id}")
@@ -48,7 +52,7 @@ public class AlbaranController {
         }
     }
 
-    @GetMapping("/get-all")
+    @GetMapping("/get-all-albaran")
     public ResponseEntity<?> getAllAlbaran(HttpServletRequest request) {
 
         String jwt = null;
@@ -88,6 +92,30 @@ public class AlbaranController {
         try {
             Albaran albSave = albaranService.save(alb);
             return ResponseEntity.ok(albSave);
+        } catch (Exception e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/get-all-productos")
+    public ResponseEntity<?> getAllProductos(HttpServletRequest request) {
+
+        String jwt = null;
+
+        String headerAuth = request.getHeader("Authorization");
+
+        if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer")) {
+            jwt = headerAuth.substring(7, headerAuth.length());
+        }
+
+        if (jwt == null) {
+            return new ResponseEntity<String>("JWT no valid to refresh", HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            return ResponseEntity.ok(productoService.findAll());
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
