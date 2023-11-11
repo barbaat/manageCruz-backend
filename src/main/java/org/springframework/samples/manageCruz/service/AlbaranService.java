@@ -26,4 +26,8 @@ public class AlbaranService {
         return albaranRepository.findAll();
     }
 
+    public Albaran save (Albaran albaran) {
+        return albaranRepository.save(albaran);
+    }
+
 }
