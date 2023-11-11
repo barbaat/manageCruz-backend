@@ -21,9 +21,5 @@ public class UserDTO {
     private Gender gender;
     private String avatar;
     private String cityString;
-    private Integer coachId;
-    private Integer studentId;
-    private Integer coordinatorId;
-    private Integer tutorId;
-    private Integer accountantId;
+    private String dni;
 }

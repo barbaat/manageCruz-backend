@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.samples.manageCruz.dto.SigninRequestDTO;
 import org.springframework.samples.manageCruz.dto.SigninResponseDTO;
 import org.springframework.samples.manageCruz.entity.User;
+import org.springframework.samples.manageCruz.entity.types.RolUser;
 import org.springframework.samples.manageCruz.repository.UserRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -97,6 +98,10 @@ public class UserService {
             userRepository.save(userToUpdate);
         }
         return userToUpdate;
+    }
+
+    public List<User> findByRolUser(RolUser rolUser) {
+        return userRepository.findByRolUser(rolUser);
     }
 
 }

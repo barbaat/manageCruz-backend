@@ -30,6 +30,10 @@ public class Albaran {
 
     @Column(name = "vendedor")
     private String vendedor;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     
     @OneToMany(mappedBy = "albaran", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({ "albaran", "producto" })

@@ -52,6 +52,9 @@ public class User {
     @Column(name = "telephone")
     private String telephone;
 
+    @Column(name = "dni")
+    private String dni;
+
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -77,6 +80,7 @@ public class User {
         userDTO.setTelephone(telephone);
         userDTO.setGender(gender);
         userDTO.setAvatar(avatar);
+        userDTO.setDni(dni);
         return userDTO;
     }
 
