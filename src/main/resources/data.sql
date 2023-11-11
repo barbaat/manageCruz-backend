@@ -8,11 +8,16 @@ VALUES
     (5,'77256372L', 'pepe', 'pepe', 'pepe', 'pepe','pepe@gmail.com','CLIENTE', 'SEVILLA', '643758474', 'FEMENINO', 'https://i.pravatar.cc/150?img=10');
 
 -- Insertar productos
-INSERT INTO producto (referencia, nombre, descripcion,precio)
+INSERT INTO producto (id,referencia, nombre, descripcion,precio)
 VALUES
-    ('42800056', 'Termostato digital ELIWELL EW961 (GREEN)', 'Termostato para uso industrial',20),
-    ('42800051', 'Termostato DINFER IC200 ATX ( GREEN)', 'Termostato DINFER para aplicaciones industriales',10),
-    ('42800101', 'Ventilador 10W', 'Ventilador de 10W para sistemas de refrigeración',5);
+    (1,'42800056', 'Termostato digital ELIWELL EW961 (GREEN)', 'Termostato para uso industrial',20),
+    (2,'42800051', 'Termostato DINFER IC200 ATX ( GREEN)', 'Termostato DINFER para aplicaciones industriales',10),
+    (3,'42800101', 'Ventilador 10W', 'Ventilador de 10W para sistemas de refrigeración',5),
+    (4,'42800234', 'Sensor de temperatura y humedad', 'Sensor para medir temperatura y humedad en ambientes controlados', 15),
+    (5,'42800245', 'Interruptor inteligente Wi-Fi', 'Interruptor con conectividad Wi-Fi para control remoto', 18),
+    (6,'42800312', 'Luz LED ajustable', 'Luz LED con intensidad ajustable para ambientes diversos', 12),
+    (7,'42800326', 'Cámara de seguridad HD', 'Cámara de seguridad con resolución HD para vigilancia en tiempo real', 30),
+    (8,'42800402', 'Cargador inalámbrico rápido', 'Cargador inalámbrico con tecnología de carga rápida', 25);
 
 -- Insertar albaran
 INSERT INTO albaran (id,user_id, fecha, no_cliente, vendedor, total_bruto, porcentaje_descuento, importe_descuento, base_imponible, porcentaje_iva, importe_iva, porcentaje_rec, importe_rec, total, forma_pago)
@@ -20,8 +25,8 @@ VALUES
     (1,3,'2023-11-07', '37', '3', 419.54, 21, 76.56, 342.98, 21, 72.03, 0, 0, 491.57, 'Contado');
 
 -- Insertar detalles de albaranes
-INSERT INTO detalle_albaran (albaran_id, producto_id, unidades, porcentaje_descuento, importe)
+INSERT INTO detalle_albaran (id,albaran_id, producto_id, unidades, porcentaje_descuento, importe)
 VALUES
-    (1, 1, 5, 0, 117.00),
-    (1, 2, 10, 0, 114.90),
-    (1, 3, 5, 0, 37.30);
+    (1,1, 1, 5, 0, 117.00),
+    (2,1, 2, 10, 0, 114.90),
+    (3,1, 3, 5, 0, 37.30);

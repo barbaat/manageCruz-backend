@@ -2,6 +2,8 @@ package org.springframework.samples.manageCruz.entity;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;
@@ -64,6 +66,10 @@ public class Albaran {
 
     @Column(name = "forma_pago")
     private String formaPago;
+
+    @Column(name = "sign")
+    @Length(max = 100000)
+    private String firma;
 
     @Override
     public String toString() {

@@ -2,6 +2,8 @@ package org.springframework.samples.manageCruz.service;
 
 import java.util.List;
 
+import javax.management.Notification;
+
 import org.springframework.samples.manageCruz.entity.Albaran;
 import org.springframework.samples.manageCruz.entity.DetalleAlbaran;
 import org.springframework.samples.manageCruz.repository.AlbaranRepository;
@@ -29,5 +31,13 @@ public class AlbaranService {
 
     public Albaran save (Albaran albaran) {
         return albaranRepository.save(albaran);
+    }
+
+    public Albaran update(Albaran alb, int id) {
+        Albaran lastAlb = albaranRepository.findById(id);
+        if (lastAlb != null) {
+            albaranRepository.save(alb);
+        }
+        return lastAlb;
     }
 }
