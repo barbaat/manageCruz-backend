@@ -30,10 +30,6 @@ public class Producto {
     @Column(name = "precio")
     private double precio;
 
-    @OneToMany(mappedBy = "albaran", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({ "producto", "albaran" })
-    private List<DetalleAlbaran> detalles;
-
     @Override
     public String toString() {
         return "Producto{" +
@@ -41,7 +37,6 @@ public class Producto {
                 ", referencia='" + referencia + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", detalles=" + detalles +
                 ", precio=" + precio +
                 '}';
     }

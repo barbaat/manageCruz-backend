@@ -23,5 +23,9 @@ public class ProductoService {
     public List<Producto> findAll() {
         return productoRepository.findAllProd();
     }
+
+    public Producto findByNombre(String nombre) {
+        return productoRepository.findByNombre(nombre);
+    }
     
 }

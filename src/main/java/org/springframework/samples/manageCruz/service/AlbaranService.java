@@ -3,6 +3,7 @@ package org.springframework.samples.manageCruz.service;
 import java.util.List;
 
 import org.springframework.samples.manageCruz.entity.Albaran;
+import org.springframework.samples.manageCruz.entity.DetalleAlbaran;
 import org.springframework.samples.manageCruz.repository.AlbaranRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ public class AlbaranService {
 
     private AlbaranRepository albaranRepository;
 
-    public AlbaranService(AlbaranRepository albaranRepository) {
-        super();
+    private DetalleAlbaranService detalleAlbaranService;
+
+    public AlbaranService(AlbaranRepository albaranRepository, DetalleAlbaranService detalleAlbaranService) {
         this.albaranRepository = albaranRepository;
+        this.detalleAlbaranService = detalleAlbaranService;
     }
 
     public Albaran findById(int id) {
@@ -27,5 +30,4 @@ public class AlbaranService {
     public Albaran save (Albaran albaran) {
         return albaranRepository.save(albaran);
     }
-
 }

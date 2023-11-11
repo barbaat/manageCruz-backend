@@ -2,7 +2,6 @@ package org.springframework.samples.manageCruz.entity;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;
@@ -25,19 +24,16 @@ public class Albaran {
     @Column(name = "no_cliente")
     private String numeroCliente;
 
-    @Column(name = "nif_cif")
-    private String nifCif;
-
     @Column(name = "vendedor")
     private String vendedor;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User cliente;
     
-    @OneToMany(mappedBy = "albaran", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({ "albaran", "producto" })
-    private List<DetalleAlbaran> detalles;
+    @OneToMany(mappedBy = "albaran")
+    @JsonIgnoreProperties({ "producto", "albaran" })
+    private List<DetalleAlbaran> detalles;    
 
     @Column(name = "total_bruto")
     private double totalBruto;
@@ -75,9 +71,7 @@ public class Albaran {
                 "id=" + id +
                 ", fecha=" + fecha +
                 ", numeroCliente='" + numeroCliente + '\'' +
-                ", nifCif='" + nifCif + '\'' +
                 ", vendedor='" + vendedor + '\'' +
-                // ", detalles=" + detalles +
                 ", totalBruto=" + totalBruto +
                 ", porcentajeDescuento=" + porcentajeDescuento +
                 ", importeDescuento=" + importeDescuento +
