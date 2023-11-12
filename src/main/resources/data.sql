@@ -20,9 +20,9 @@ VALUES
     (8,'42800402', 'Cargador inalámbrico rápido', 'Cargador inalámbrico con tecnología de carga rápida', 25);
 
 -- Insertar albaran
-INSERT INTO albaran (id,user_id, fecha, no_cliente, vendedor, total_bruto, porcentaje_descuento, importe_descuento, base_imponible, porcentaje_iva, importe_iva, porcentaje_rec, importe_rec, total, forma_pago)
+INSERT INTO albaran (id,user_id, fecha, no_cliente, vendedor, total_bruto, porcentaje_descuento, importe_descuento, base_imponible, porcentaje_iva, importe_iva, porcentaje_rec, importe_rec, total, forma_pago,prep_y_conf)
 VALUES
-    (1,3,'2023-11-07', '37', '3', 419.54, 21, 76.56, 342.98, 21, 72.03, 0, 0, 491.57, 'Contado');
+    (1,4,'2023-11-07', '37', '3', 419.54, 21, 76.56, 342.98, 21, 72.03, 0, 0, 491.57, 'Contado',false);
 
 -- Insertar detalles de albaranes
 INSERT INTO detalle_albaran (id,albaran_id, producto_id, unidades, porcentaje_descuento, importe)

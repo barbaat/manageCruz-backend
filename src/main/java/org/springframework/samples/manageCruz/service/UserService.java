@@ -92,6 +92,7 @@ public class UserService {
             userToUpdate.setCity(user.getCity());
             userToUpdate.setGender(user.getGender());
             userToUpdate.setAvatar(user.getAvatar());
+            userToUpdate.setDni(user.getDni());
             if (user.getAvatar() == "") {
                 userToUpdate.setAvatar("https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Images.png");
             }

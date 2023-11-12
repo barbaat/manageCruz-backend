@@ -71,6 +71,9 @@ public class Albaran {
     @Length(max = 100000)
     private String firma;
 
+    @Column(name = "prep_y_conf")
+    private boolean preparadoYConfirmado;
+
     @Override
     public String toString() {
         return "Albaran{" +
