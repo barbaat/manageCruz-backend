@@ -23,9 +23,6 @@ public class Albaran {
     @Column(name = "fecha")
     private Date fecha = new Date();
 
-    @Column(name = "no_cliente")
-    private String numeroCliente;
-
     @Column(name = "vendedor")
     private String vendedor;
 
@@ -36,30 +33,6 @@ public class Albaran {
     @OneToMany(mappedBy = "albaran")
     @JsonIgnoreProperties({ "producto", "albaran" })
     private List<DetalleAlbaran> detalles;    
-
-    @Column(name = "total_bruto")
-    private double totalBruto;
-
-    @Column(name = "porcentaje_descuento")
-    private int porcentajeDescuento;
-
-    @Column(name = "importe_descuento")
-    private double importeDescuento;
-
-    @Column(name = "base_imponible")
-    private double baseImponible;
-
-    @Column(name = "porcentaje_iva")
-    private int porcentajeIVA;
-
-    @Column(name = "importe_iva")
-    private double importeIVA;
-
-    @Column(name = "porcentaje_rec")
-    private int porcentajeRec;
-
-    @Column(name = "importe_rec")
-    private double importeRec;
 
     @Column(name = "total")
     private double total;
@@ -74,22 +47,22 @@ public class Albaran {
     @Column(name = "prep_y_conf")
     private boolean preparadoYConfirmado;
 
+    public double getTotal() {
+        double total = 0;
+        if (detalles == null) return total;
+        for (DetalleAlbaran detalle : detalles) {
+            total += detalle.getImporte();
+        }
+        return total;
+    }
+    
     @Override
     public String toString() {
         return "Albaran{" +
                 "id=" + id +
                 ", fecha=" + fecha +
-                ", numeroCliente='" + numeroCliente + '\'' +
                 ", vendedor='" + vendedor + '\'' +
-                ", totalBruto=" + totalBruto +
-                ", porcentajeDescuento=" + porcentajeDescuento +
-                ", importeDescuento=" + importeDescuento +
-                ", baseImponible=" + baseImponible +
-                ", porcentajeIVA=" + porcentajeIVA +
-                ", importeIVA=" + importeIVA +
-                ", porcentajeRec=" + porcentajeRec +
-                ", importeRec=" + importeRec +
-                ", total=" + total +
+                ", total=" + getTotal() +
                 ", formaPago='" + formaPago + '\'' +
                 '}';
     }

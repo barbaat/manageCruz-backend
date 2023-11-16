@@ -32,26 +32,16 @@ public class DetalleAlbaran {
     @Column(name = "unidades")
     private int unidades;
 
-    @Column(name = "porcentaje_descuento")
-    private double porcentajeDescuento;
-
-    @Column(name = "importe")
-    private double importe;
-
-    public String getReferenciaProducto() {
-        return producto.getReferencia();
-    }
-
     public String getNombreProducto() {
         return producto.getNombre();
     }
 
-    public String getDescripcionProducto() {
-        return producto.getDescripcion();
-    }
-
     public double getPrecio() {
         return producto.getPrecio();
+    }
+
+    public double getImporte() {
+        return getPrecio() * unidades;
     }
 
     @Override
@@ -62,11 +52,8 @@ public class DetalleAlbaran {
                 ", producto=" + producto +
                 ", unidades=" + unidades +
                 ", precio=" + getPrecio() +
-                ", porcentajeDescuento=" + porcentajeDescuento +
-                ", importe=" + importe +
-                ", referenciaProducto='" + getReferenciaProducto() +
+                ", importe=" + getImporte() +
                 ", nombreProducto='" + getNombreProducto() +
-                ", descripcionProducto='" + getDescripcionProducto() +
                 '}';
     }
 }
