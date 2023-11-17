@@ -26,4 +26,5 @@ public class UserDTO {
     private String cityString;
     private String dni;
     private List<Caseta> casetas;
+    private List<Caseta> casetasComercial;
 }

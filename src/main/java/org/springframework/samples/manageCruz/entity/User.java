@@ -68,7 +68,13 @@ public class User {
     private String avatar;
 
     @OneToMany(mappedBy = "propietario")
+    @JsonIgnoreProperties({"propietario", "comercial"})
     private List<Caseta> casetas;
+    
+    @OneToMany(mappedBy = "comercial")
+    @JsonIgnoreProperties({"propietario", "comercial"})
+    private List<Caseta> casetasComercial;
+    
 
     public String getCityString() {
         return (city != null) ? city.getNombre() : "";
@@ -90,6 +96,7 @@ public class User {
         userDTO.setAvatar(avatar);
         userDTO.setDni(dni);
         userDTO.setCasetas(casetas);
+        userDTO.setCasetasComercial(casetasComercial);
         return userDTO;
     }
 

@@ -27,9 +27,15 @@ public class Caseta {
     private int numero;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties("casetas")
+    @JoinColumn(name = "propietario_id")
+    @JsonIgnoreProperties({"casetas", "casetasComercial"})
     private User propietario;
+    
+    @ManyToOne
+    @JoinColumn(name = "comercial_id")
+    @JsonIgnoreProperties({"casetas", "casetasComercial"})
+    private User comercial;
+    
 
     @Override
     public String toString() {

@@ -53,20 +53,20 @@ VALUES
 (11,5, 1, 2),
 (12,5, 3, 1);
 
-INSERT INTO caseta (id, calle, numero, user_id)
+INSERT INTO caseta (id, calle, numero, propietario_id, comercial_id)
 VALUES
-(1, 'ANTONIO_BIENVENIDA', 1, 3),
-(2, 'PEPE_HILLO', 2, 4),
-(3, 'PEPE_LUIS_VAZQUEZ', 3, 5),
-(4, 'CHICUELO', 4, 6),
-(5, 'BOMBITA', 5, 7),
-(6, 'COSTILLARES', 6, 8),
-(7, 'ESPARTERO', 7, 9),
-(8, 'GITANILLO_DE_TRIANA', 8, 10),
-(9, 'JOSELITO_EL_GALLO', 9, 3),
-(10, 'JUAN_BELMONTE', 10, 4),
-(11, 'PASCUAL_MARQUEZ', 11, 5),
-(12, 'CURRO_ROMERO', 12, 6),
-(13, 'SANCHEZ_MEJIAS', 13, 7),
-(14, 'GOMEZ_ORTEGA', 14, 8),
-(15, 'MANOLO_VAZQUEZ', 15, 9);
+(1, 'ANTONIO_BIENVENIDA', 1, 3,11),
+(2, 'PEPE_HILLO', 2, 4,11),
+(3, 'PEPE_LUIS_VAZQUEZ', 3, 5,11),
+(4, 'CHICUELO', 4, 6,11),
+(5, 'BOMBITA', 5, 7,11),
+(6, 'COSTILLARES', 6, 8,11),
+(7, 'ESPARTERO', 7, 9,11),
+(8, 'GITANILLO_DE_TRIANA', 8, 10,11),
+(9, 'JOSELITO_EL_GALLO', 9, 3,11),
+(10, 'JUAN_BELMONTE', 10, 4,11),
+(11, 'PASCUAL_MARQUEZ', 11, 5,11),
+(12, 'CURRO_ROMERO', 12, 6,11),
+(13, 'SANCHEZ_MEJIAS', 13, 7, 11),
+(14, 'GOMEZ_ORTEGA', 14, 8, 11),
+(15, 'MANOLO_VAZQUEZ', 15, 9,11);
