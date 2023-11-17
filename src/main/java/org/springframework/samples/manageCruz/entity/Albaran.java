@@ -47,6 +47,9 @@ public class Albaran {
     @Column(name = "prep_y_conf")
     private boolean preparadoYConfirmado;
 
+    @Column(name = "tipo_instalacion")
+    private String tipoInstalacion;
+
     public double getTotal() {
         double total = 0;
         if (detalles == null) return total;
@@ -64,6 +67,9 @@ public class Albaran {
                 ", vendedor='" + vendedor + '\'' +
                 ", total=" + getTotal() +
                 ", formaPago='" + formaPago + '\'' +
+                ", firma='" + firma + '\'' +
+                ", preparadoYConfirmado=" + preparadoYConfirmado +
+                ", tipoInstalacion='" + tipoInstalacion + '\'' +
                 '}';
     }
 }

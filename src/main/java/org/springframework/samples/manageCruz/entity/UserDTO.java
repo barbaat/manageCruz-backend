@@ -1,6 +1,9 @@
 package org.springframework.samples.manageCruz.entity;
 
 import org.springframework.samples.manageCruz.entity.types.RolUser;
+
+import java.util.List;
+
 import org.springframework.samples.manageCruz.entity.types.City;
 import org.springframework.samples.manageCruz.entity.types.Gender;
 import lombok.Getter;
@@ -22,4 +25,5 @@ public class UserDTO {
     private String avatar;
     private String cityString;
     private String dni;
+    private List<Caseta> casetas;
 }

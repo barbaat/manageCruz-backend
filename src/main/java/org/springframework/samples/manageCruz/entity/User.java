@@ -1,5 +1,7 @@
 package org.springframework.samples.manageCruz.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,11 +9,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnTransformer;
 import org.springframework.samples.manageCruz.entity.types.City;
 import org.springframework.samples.manageCruz.entity.types.RolUser;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.samples.manageCruz.entity.types.Gender;
 
@@ -62,6 +67,9 @@ public class User {
     @Column(name = "avatar")
     private String avatar;
 
+    @OneToMany(mappedBy = "propietario")
+    private List<Caseta> casetas;
+
     public String getCityString() {
         return (city != null) ? city.getNombre() : "";
     }
@@ -81,6 +89,7 @@ public class User {
         userDTO.setGender(gender);
         userDTO.setAvatar(avatar);
         userDTO.setDni(dni);
+        userDTO.setCasetas(casetas);
         return userDTO;
     }
 
